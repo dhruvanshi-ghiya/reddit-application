@@ -1,0 +1,76 @@
+/* Import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+/* Set global styles */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Post card styles */
+.post-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.post-score {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff8c00;
+}
+
+.star-icon {
+  margin-right: 4px;
+}
+
+.post-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments-link {
+  display: inline-flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.comment-icon {
+  margin-right: 4px;
+}
+
+.favorite-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff8c00;
+}
+
+.favorite-icon {
+  margin-right: 4px;
+}
