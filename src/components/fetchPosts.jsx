@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import SubredditInput from 'components/SubRedditInput.jsx';
-import PostList from './PostList';
+import PostList from 'components/PostList';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -10,23 +10,25 @@ const App = () => {
   const fetchPosts = async (subreddit) => {
     try {
       const response = await axios.get(`https://www.reddit.com/r/${subreddit}/hot.json?limit=10`);
-      return response.data.data.children.map(child => ({
+      const fetchedPosts = response.data.data.children.map(child => ({
         id: child.data.id,
         score: child.data.score,
         title: child.data.title,
         commentsUrl: `https://www.reddit.com${child.data.permalink}`
       }));
+      return fetchedPosts;
     } catch (error) {
       console.error('Error fetching posts:', error);
-      return [];
+      return []; // Return an empty array in case of an error
     }
-  };
+  };  
 
   // Step 3: Call the fetchPosts function and update state here
   const handleSubredditSubmit = async (subreddit) => {
     const fetchedPosts = await fetchPosts(subreddit);
-    setPosts(fetchedPosts);
-  };
+    console.log('Fetched posts:', fetchedPosts); // Add this line
+    setPosts(fetchedPosts); // Ensure fetchedPosts is an array
+  };     
 
   return (
     <div className="App">
